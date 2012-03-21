@@ -1,0 +1,1 @@
+<h1><?=$post['Post']['titulo']?></h1>

@@ -9,7 +9,11 @@ class PostsController extends AppController{
 		
 	}
 	
-	
+	public function view($id = null){
+		if($id){
+			return $this->Post->read(null,$id);;
+		}
+	}
 
 	public function add(){
 		if($this->data){
@@ -36,13 +40,7 @@ class PostsController extends AppController{
 			$this->redirect(array('controller' => 'posts','action' => 'index'));
 		}
 	}
-	
-	public function view($id = null){
-		if($id){
-			return $this->Post->read(null,$id);;
-		}
-	}
-	
+		
 	public function beforeFilter(){
 		if(!method_exists($this, $this->params->action)){
 			$post = self::view($this->params->action);
